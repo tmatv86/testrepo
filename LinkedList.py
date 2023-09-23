@@ -1,5 +1,19 @@
 import time
-
+'''
+    linked list uploaded to the GitHub as a test py. file
+    *** Author ***
+    Matvei Tkachenko
+    **************
+    Works as a list with only link to the next object. COntains the following options:
+    - insert
+    - delete
+    - insert next
+    - insert last
+    - print
+    Can be used for test purposes only. 
+    works slower than build-in list() python
+    **************
+'''
 class Node:
     def __init__(self, data):
         self.data = data
@@ -8,6 +22,7 @@ class Node:
     def __repr__(self):
         return self.data
 
+    # get value from the linked list node by id
     def getById(self, value):
         if self.data == value:
             return self
@@ -120,7 +135,7 @@ class LinkedList:
 if __name__ == '__main__':
 
 
-    # Linked list tests:
+    # Linked list practices:
     llist = LinkedList()
     llist.insert_first('A')
     llist.insert_last('Z')
@@ -129,7 +144,6 @@ if __name__ == '__main__':
     llist.insertTo(3, 'P')
     llist.insertTo(3, 'N')
     llist.insert_last('B')
-    # print(llist)
     llist.insertAfter('R', 'T')
     llist.insertAfter('U', 'K')
     llist.insertBefore('T', 'E')
@@ -151,6 +165,7 @@ if __name__ == '__main__':
         print("Element does not exist!")
 
 
+    # insert at/insert first
     llist.insertAfter('L', 'TT')
     print(llist)
     llist.remove('H')
@@ -162,19 +177,9 @@ if __name__ == '__main__':
     nlist = LinkedList()
     nlist.insert_first('F')
 
+    # time measurement for insert last operation
     timebef = time.time()
     for s in range(34, 126):
         nlist.insert_next(chr(s))
     timeafter = time.time()
-
     print(timeafter - timebef)
-    print(nlist)
-    llist.insertBefore('E', 'Y')
-    llist.insertAfter('K', 'N')
-    print(llist)
-
-
-
-
-
-
