@@ -80,7 +80,7 @@ class NService(Service):
             coords = self.ret_location(location)
         except TypeError:
             print('TypeError: not found :-(')
-            return None
+            return {}
         return coords
 
 def get_first_key(addresses, val):
@@ -97,6 +97,7 @@ def search_closest_location(lat1, long1, destination_address, geo_object):
     if isinstance(geo_object, NService):
         API = ''
     elif isinstance(geo_object, YService):
+
         API = 'API_KEY'
     elif isinstance(geo_object, GService):
         API = 'GAPI_KEY'
@@ -115,6 +116,4 @@ def search_closest_location(lat1, long1, destination_address, geo_object):
             min_dist = dst
             addr = k
 
-    min_dist = str(min_dist)[:4]
-
-    return addr, min_dist
+    return addr, str(min_dist)[:4]
